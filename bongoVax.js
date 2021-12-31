@@ -12,22 +12,44 @@ const people = [
 
 const vaxTrail = people => {
 
-	let vaccination = { A: [], B: [], C: [], D: [] };
+	let queues = { A: [], B: [], C: [], D: [] };
 
 	for (let person of people) {
+
 		if (person.age >= 20 && person.age <= 30 && person.temperature < 100) {
-			vaccination.A.push(person);
+
+			queues.A.push(person);
+
 		} else if (person.age >= 31 && person.age <= 40 && person.temperature < 100) {
-			vaccination.B.push(person);
+
+			queues.B.push(person);
 
 		} else if (person.age >= 41 && person.age <= 50 && person.temperature < 100) {
-			vaccination.C.push(person);
+
+			queues.C.push(person);
+
 		} else {
-			vaccination.D.push(person);
+
+			queues.D.push(person);
+
 		}
 	}
-	return vaccination;
 
+	queues.A.sort(function (a, b) {
+		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+	});
+	queues.B.sort(function (a, b) {
+		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+	});
+	queues.C.sort(function (a, b) {
+		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+	});
+	queues.D.sort(function (a, b) {
+		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+	});
+
+	return queues;
 }
 
 console.log(vaxTrail(people));
+vaxTrail(people)
