@@ -19,34 +19,33 @@ const vaxTrail = people => {
 		if (person.age >= 20 && person.age <= 30 && person.temperature < 100) {
 
 			queues.A.push(person);
+			queues.A.sort(function (a, b) {
+				return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+			});
 
 		} else if (person.age >= 31 && person.age <= 40 && person.temperature < 100) {
 
 			queues.B.push(person);
+			queues.B.sort(function (a, b) {
+				return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+			});
 
 		} else if (person.age >= 41 && person.age <= 50 && person.temperature < 100) {
 
 			queues.C.push(person);
+			queues.C.sort(function (a, b) {
+				return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+			});
 
 		} else {
 
 			queues.D.push(person);
+			queues.D.sort(function (a, b) {
+				return Math.abs(a.age % 2) - Math.abs(b.age % 2);
+			});
 
 		}
 	}
-
-	queues.A.sort(function (a, b) {
-		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
-	});
-	queues.B.sort(function (a, b) {
-		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
-	});
-	queues.C.sort(function (a, b) {
-		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
-	});
-	queues.D.sort(function (a, b) {
-		return Math.abs(a.age % 2) - Math.abs(b.age % 2);
-	});
 
 	return queues;
 }
